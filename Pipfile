@@ -9,9 +9,11 @@ sqlalchemy = "~=2.0.0"
 marshmallow = "~=3.19.0"
 flask-admin = "~=1.6.0"
 pymysql = "~=1.0.2"
+alembic = "*"
 
 [dev-packages]
 pytest = "~=7.2.1"
+autopep8 = "*"
 
 [requires]
 python_version = "3.10"
