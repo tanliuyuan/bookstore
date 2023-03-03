@@ -1,2 +1,2 @@
-# library
-Code sample for a library service
+# bookstore
+Code sample for a bookstore service
