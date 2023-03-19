@@ -1,0 +1,46 @@
+version: '3.8'
+services:
+  db:
+    container_name: bookstore-db
+    image: mysql:latest
+    restart: always
+    ports:
+      - 33060:3306
+    env_file:
+      - ./.env
+    logging:
+      options:
+        mode: non-blocking
+        max-buffer-size: 1K
+  api:
+    container_name: bookstore-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: "no"
+    ports:
+      - "50000:5000"
+    env_file:
+      - ./.env
+    logging:
+      options:
+        mode: non-blocking
+        max-buffer-size: 1K
+    depends_on:
+      - db
+    entrypoint: ["python3", "-m", "flask", "run"]
+  # ui:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile-dev
+  #   container_name: automations-daemon
+  #   restart: unless-stopped
+  #   volumes:
+  #     - "./:/afn/ticketing"
+  #   logging:
+  #     options:
+  #       mode: non-blocking
+  #       max-buffer-size: 1K
+  #   command: "./manage.py automations"
+  #   env_file:
+  #     - "./config.env"
