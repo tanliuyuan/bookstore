@@ -1,3 +1,4 @@
 .vscode
-Pipenv*
+Pipfile*
 docker-compose.debug.yml
+**/__pycache__
