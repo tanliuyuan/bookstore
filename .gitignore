@@ -1,1 +1,3 @@
 .vscode
+Pipenv*
+docker-compose.debug.yml
