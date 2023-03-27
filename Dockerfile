@@ -4,7 +4,6 @@ ENV LANG C.UTF-8
 ENV LC_ALL C.UTF-8
 ENV DEBIAN_FRONTEND noninteractive
 ENV PYTHONDONTWRITEBYTECODE=1
-ENV FLASK_APP=app/main.py
 
 # System dependencies
 RUN apt update && apt upgrade -y
