@@ -21,9 +21,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    restart: "no"
+    restart: no
     ports:
-      - "50000:5000"
+      - 50000:5000
+    volumes:
+      - .:/bookstore
     env_file:
       - ./.env
     logging:
