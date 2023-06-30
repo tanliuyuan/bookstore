@@ -1,6 +1,6 @@
 from sqlalchemy import Column, ForeignKey
 
-from app.models.base import BaseModel
+from .base import BaseModel
 
 
 class UserRole(BaseModel):

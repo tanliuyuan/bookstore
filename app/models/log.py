@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Text, Integer
 
-from app.models.base import BaseModel
+from .base import BaseModel
 
 
 class Log(BaseModel):

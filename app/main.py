@@ -1,13 +1,19 @@
 import logging
 import os
+import commands
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
+from models import db
 
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
-db = SQLAlchemy(app)
+
 logger = logging.getLogger(__name__)
 
-with app.app_context():
-    from models import book, log, role, user, user_role
-    db.create_all()
+
+def create_app():
+    app = Flask(__name__)
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv(
+        'SQLALCHEMY_DATABASE_URI')
+    db.init_app(app)
+
+    app.register_blueprint(commands.bp)
+
+    return app

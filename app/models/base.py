@@ -1,5 +1,6 @@
+from uuid import uuid4
 from sqlalchemy import Column, FetchedValue, Integer, String, DateTime, text, func
-from main import db
+from . import db
 
 
 class BaseModel(db.Model):
@@ -20,7 +21,8 @@ class BaseModel(db.Model):
     uuid = Column(
         String(36),
         unique=True,
-        nullable=False
+        nullable=False,
+        default=lambda: str(uuid4())
     )
 
     created_at = Column(
