@@ -1,10 +1,10 @@
 import click
-from models import db
-from models.book import Book
-from models.log import Log
-from models.role import Role
-from models.user_role import UserRole
-from models.user import User
+from app.models import db
+from app.models.book import Book
+from app.models.log import Log
+from app.models.role import Role
+from app.models.user_role import UserRole
+from app.models.user import User
 
 from flask import Blueprint
 

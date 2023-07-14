@@ -1,8 +1,10 @@
 import logging
 import os
-import commands
+
 from flask import Flask
-from models import db
+from . import commands
+from .models import db
+from .views.v1 import book
 
 
 logger = logging.getLogger(__name__)
@@ -15,5 +17,6 @@ def create_app():
     db.init_app(app)
 
     app.register_blueprint(commands.bp)
+    app.register_blueprint(book.bp)
 
     return app
