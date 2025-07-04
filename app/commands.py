@@ -1,7 +1,6 @@
 import click
 from app.models import db
 from app.models.book import Book
-from app.models.log import Log
 from app.models.role import Role
 from app.models.user_role import UserRole
 from app.models.user import User
